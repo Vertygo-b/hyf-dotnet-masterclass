@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'ivan-meal-sharing'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_995BE9447F8D4133841C016E7CDC6946 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9ED8607420964B95916B855FD0CB0B5E }}
           package: .
