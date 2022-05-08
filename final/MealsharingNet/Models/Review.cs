@@ -7,5 +7,5 @@ public class Review
     public string Description { get; set; }
     public int Meal_ID { get; set; }
     public int Stars { get; set; }
-    public DateTime Created_date { get; set; }
+    public DateTime Created_date { get; set; } = DateTime.Now;
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MealsharingNet.Controllers;
 
 [ApiController]
-[Route("Reservation")]
+[Route("api/reservations")]
 public class ReservationController : ControllerBase
 {
     private IReservationRepository _repo;
@@ -14,29 +14,29 @@ public class ReservationController : ControllerBase
         _repo = repo;
     }
 
-    [HttpGet("GetReservations")]
+    [HttpGet("")]
     public async Task<IEnumerable<Reservation>> GetReservations()
     {
         return await _repo.ListReservations();
     }
 
-    [HttpPost("AddReservation")]
+    [HttpPost("")]
     public async Task AddReservation([FromBody] Reservation reservation)
     {
         await _repo.AddReservation(reservation);
     }
 
-    [HttpGet("GetMealReservationWithID")]
+    [HttpGet("{id}")]
     public async Task<List<Reservation>> GetMealReservations(int id)
     {
         return await _repo.GetMealReservations(id);
     }
-    [HttpDelete("Deletereservation")]
+    [HttpDelete("{id}")]
     public async Task DeleteReservation(int id)
     {
         await _repo.DeleteReservation(id);
     }
-    [HttpPatch("UpdateReservation")]
+    [HttpPatch("")]
     public async Task UpdateMeal([FromBody] Reservation reservation)
     {
         await _repo.UpdateReservation(reservation);

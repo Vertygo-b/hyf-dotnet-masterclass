@@ -14,19 +14,19 @@ public class UserController : ControllerBase
         _userRepository = userRepository;
     }
 
-    [HttpGet("GetUsers")]
+    [HttpGet("")]
     public async Task<IEnumerable<User>> GetAll()
     {
         return await _userRepository.GetUsers();
     }
 
-    [HttpGet("GetUserById")]
+    [HttpGet("{id}")]
     public async Task<User> GetUserById(int id)
     {
         return await _userRepository.GetUserByID(id);
     }
 
-    [HttpDelete("DeleteUserById")]
+    [HttpDelete("{id}")]
     public async Task DeleteUser(int id)
     {
         await _userRepository.DeleteUserById(id);

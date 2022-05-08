@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MealsharingNet.Controllers;
 
 [ApiController]
-[Route("Reviews")]
+[Route("api/reviews")]
 public class ReviewController : ControllerBase
 {
     private IReviewRepository _repo;
@@ -14,29 +14,29 @@ public class ReviewController : ControllerBase
         _repo = repo;
     }
 
-    [HttpGet("GetReviews")]
+    [HttpGet("")]
     public async Task<IEnumerable<Review>> ListReviews()
     {
         return await _repo.ListReviews();
     }
 
-    [HttpPost("AddReview")]
+    [HttpPost("")]
     public async Task AddReview([FromBody] Review review)
     {
         await _repo.AddReview(review);
     }
 
-    [HttpGet("GetMealReviewsWithID")]
+    [HttpGet("{id}")]
     public async Task <List<Review>> GetMealReviews(int id)
     {
         return await _repo.GetMealReviews(id);
     }
-    [HttpDelete("DeleteReview")]
+    [HttpDelete("{id}")]
     public async Task DeleteReview(int id)
     {
         await _repo.DeleteReview(id);
     }
-    [HttpPatch("UpdateReview")]
+    [HttpPatch("")]
     public async Task UpdateReview([FromBody] Review review)
     {
         await _repo.UpdateReview(review);

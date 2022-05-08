@@ -29,6 +29,12 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+ app.UseDefaultFiles();
+
+ app.UseStaticFiles();
+
+ app.MapFallbackToFile("index.html");
+
 app.MapControllers();
 
 app.Run();
